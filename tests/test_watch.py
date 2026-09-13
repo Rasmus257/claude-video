@@ -7,6 +7,7 @@ import sys
 from pathlib import Path
 
 WATCH = Path(__file__).resolve().parent.parent / "skills" / "watch" / "scripts" / "watch.py"
+TIKTOK = "https://www.tiktok.com/@iloveeestrayyykidsss/photo/7463596003225013536"
 
 
 def _run(clip: Path, *args: str, env_extra: dict | None = None) -> str:
@@ -99,7 +100,7 @@ def _run_in_process(monkeypatch, capsys, dl: dict, *args: str) -> str:
     monkeypatch.delenv("WATCH_DETAIL", raising=False)
     monkeypatch.setattr(watch, "fetch_captions", lambda url, out: {"subtitle_path": None, "info": {}})
     monkeypatch.setattr(watch, "download", lambda *a, **k: dl)
-    monkeypatch.setattr(sys, "argv", ["watch", "https://www.tiktok.com/@u/photo/1", "--no-whisper", *args])
+    monkeypatch.setattr(sys, "argv", ["watch", TIKTOK, "--no-whisper", *args])
     assert watch.main() == 0
     return capsys.readouterr().out
 

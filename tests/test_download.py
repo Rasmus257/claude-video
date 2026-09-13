@@ -67,7 +67,7 @@ def test_download_url_requests_english_only(monkeypatch, tmp_path):
 
 # --- gallery-dl fallback (image slideshows) ---------------------------------
 
-TIKTOK = "https://www.tiktok.com/@user/photo/7676538017506479373"
+TIKTOK = "https://www.tiktok.com/@iloveeestrayyykidsss/photo/7463596003225013536"
 
 
 def _fake_tools(monkeypatch, *, ytdlp_files=(), gallery_files=(), gallery_dl=True, info=None):
